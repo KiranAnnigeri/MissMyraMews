@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 
 // ─────────────────────────────────────────────────────────────────
@@ -705,6 +706,7 @@ export default function App() {
           </Section>
         </div>
       </div>
+      <Analytics />
     </div>
   );
 }
