@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,700&family=Jost:wght@200;300;400&display=swap');
+
+/* ── RESET ────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+/* ── HERO TITLE ───────────────────────────────────────────────── */
+.hero-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(5.5rem, 20vw, 15rem);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  margin: 0;
+  background: linear-gradient(168deg,
+      #2D1F2B 0%,
+      #D4697C 40%,
+      #E8899A 65%,
+      rgba(232, 137, 154, 0.18) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: heroIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HERO SUBTITLE ────────────────────────────────────────────── */
+.hero-subtitle {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-size: clamp(0.56rem, 1.4vw, 0.8rem);
+  font-weight: 200;
+  letter-spacing: 0.52em;
+  text-transform: uppercase;
+  color: rgba(232, 137, 154, 0.55);
+  animation: subIn 1.8s 0.6s both;
+  margin: 0;
+}
+
+/* ── SCROLL CUE ───────────────────────────────────────────────── */
+.scroll-cue {
+  position: absolute;
+  bottom: -40vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: subIn 2s 1.3s both;
+}
+
+.scroll-arrow {
+  animation: scrollArrowBounce 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* ── PETAL PARTICLES ──────────────────────────────────────────── */
+.petal-particle {
+  position: absolute;
+  opacity: 0;
+  animation: petals ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ── POLAROID PHOTOS ──────────────────────────────────────────── */
+.polaroid {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
+}
+
+.polaroid-inner {
+  width: clamp(140px, 18vw, 200px);
+  background: #ffffff;
+  padding: 8px 8px 0 8px;
+  border-radius: 4px;
+  box-shadow:
+    0 4px 20px rgba(232, 137, 154, 0.15),
+    0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  overflow: hidden;
+}
+
+.polaroid:hover .polaroid-inner {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow:
+    0 12px 40px rgba(232, 137, 154, 0.22),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.polaroid-img {
+  width: 100%;
+  height: clamp(160px, 22vw, 240px);
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+.polaroid-caption {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(0.8rem, 1.6vw, 1.05rem);
+  font-weight: 500;
+  color: rgba(45, 31, 43, 0.65);
+  text-align: center;
+  padding: 10px 4px 12px;
+  line-height: 1.2;
+}
+
+/* ── STICKERS ─────────────────────────────────────────────────── */
+.sticker {
+  position: absolute;
+  pointer-events: none;
+  animation: stickerFloat 4s ease-in-out infinite;
+}
+
+/* ── STAT CARDS ───────────────────────────────────────────────── */
+.stat-card {
+  min-width: 112px;
+  padding: clamp(1rem, 2vw, 1.8rem) clamp(1.2rem, 2.5vw, 2.2rem);
+  border: 1px solid rgba(232, 137, 154, 0.18);
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(232, 137, 154, 0.15);
+}
+
+.stat-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(232, 137, 154, 0.4), transparent);
+}
+
+/* ── BUTTONS ──────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  background: #E8899A;
+  color: #ffffff;
+  font-family: 'Jost', system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+  box-shadow: 0 4px 28px rgba(232, 137, 154, 0.25);
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: #D4697C;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(212, 105, 124, 0.3);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 137, 154, 0.25);
+  background: transparent;
+  color: rgba(45, 31, 43, 0.6);
+  font-family: 'Jost', system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  border-color: #E8899A;
+  color: #2D1F2B;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(232, 137, 154, 0.15);
+}
+
+/* ── KEYFRAMES ────────────────────────────────────────────────── */
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scaleY(0.95);
+    letter-spacing: 0.12em;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    letter-spacing: -0.02em;
+  }
+}
+
+@keyframes subIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseLine {
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scaleY(1.5);
+  }
+}
+
+@keyframes ringBreath {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes blob1 {
+
+  0%,
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+
+  50% {
+    transform: translate(-5%, 4%) scale(1.08);
+  }
+}
+
+@keyframes blob2 {
+
+  0%,
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+
+  50% {
+    transform: translate(5%, -5%) scale(0.92);
+  }
+}
+
+@keyframes blob3 {
+
+  0%,
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+
+  50% {
+    transform: translate(-3%, 5%) scale(1.12);
+  }
+}
+
+@keyframes petals {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+  }
+
+  15% {
+    opacity: 0.5;
+  }
+
+  85% {
+    opacity: 0.08;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-110px) translateX(var(--dx)) rotate(var(--dr)) scale(0.4);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes stickerFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.35;
+  }
+
+  25% {
+    transform: translateY(-4px) rotate(3deg);
+  }
+
+  50% {
+    transform: translateY(-2px) rotate(-2deg);
+    opacity: 0.55;
+  }
+
+  75% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+}
+
+@keyframes scrollArrowBounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(8px);
+  }
+
+  60% {
+    transform: translateY(4px);
+  }
+}
+
+/* ── HERO FLOATING PHOTOS ─────────────────────────────────────── */
+.hero-float-photo {
+  animation: heroFloat 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-float-photo:nth-child(2) {
+  animation-delay: -1.5s;
+}
+
+.hero-float-photo:nth-child(3) {
+  animation-delay: -3s;
+}
+
+@keyframes heroFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(var(--r, 0deg));
+  }
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .polaroid-inner {
+    width: clamp(110px, 30vw, 155px);
+  }
+
+  .polaroid-img {
+    height: clamp(120px, 35vw, 185px);
+  }
+
+  .polaroid-caption {
+    font-size: 0.75rem;
+    padding: 6px 3px 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .stat-card {
+    min-width: 90px;
+    padding: 0.8rem 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-size: 0.72rem;
+    padding: 0.7rem 1.3rem;
+  }
+
+  .polaroid-inner {
+    width: clamp(95px, 28vw, 130px);
+  }
+
+  .polaroid-img {
+    height: clamp(100px, 32vw, 155px);
+  }
+}
