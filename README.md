@@ -1,16 +1,56 @@
-# React + Vite
+# Miss Myra Mews 🐱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A scroll-driven portfolio website for **Myra** — the smartest floof on the internet.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Scroll-driven animations** — 6 cinematic chapters unfold as you scroll
+- **Interactive paw wave** — Myra's paw rises, waves, and drops with scroll progress
+- **Polaroid photo gallery** — Photos animate in with parallax, rotation, and fade effects
+- **Glassmorphic stat cards** — Fun facts with hover effects and shimmer accents
+- **Responsive design** — Looks great on desktop and mobile
+- **Custom SVG art** — Hand-crafted paw, sparkles, hearts, blossoms, and paw prints
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** + **Vite 7**
+- Vanilla CSS with CSS animations & keyframes
+- Google Fonts: Cormorant Garamond, Jost, Caveat
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── App.jsx         # Entire app — components, scroll logic, layout
+├── App.css         # All styles, animations, responsive rules
+├── main.jsx        # React root
+└── index.css       # (empty — styles live in App.css)
+
+public/
+└── photos/         # 6 photos of Myra
+```
+
+## 📬 Contact
+
+- 📧 [missmyramews@gmail.com](mailto:missmyramews@gmail.com)
+- 📸 [@miss.myra.mews](https://www.instagram.com/miss.myra.mews)
+
+---
+
+© Miss Myra Mews · All rights reserved
